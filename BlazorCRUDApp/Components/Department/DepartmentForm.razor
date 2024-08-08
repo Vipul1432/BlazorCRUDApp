@@ -1,0 +1,19 @@
+﻿@page "/department/{Id:int?}"
+@page "/department/new"
+
+@inherits DepartmentAddEdit
+
+<h3>@Title</h3>
+
+<EditForm Model="@Department" OnValidSubmit="HandleValidSubmit" FormName="department">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="name">Department Name:</label>
+        <InputText id="name" @bind-Value="Department.Name" class="form-control w-25" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-sm btn-secondary">@SubmitButtonText</button>
+    <a type="button" href="/department" class="btn btn-sm btn-success">Cancel</a>
+</EditForm>
